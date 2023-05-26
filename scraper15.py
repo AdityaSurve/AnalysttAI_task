@@ -26,7 +26,17 @@ for a in rating_a:
     rating_i = a.find("i",attrs={"class":"a-icon a-icon-star-small a-star-small-4 aok-align-bottom"})
     rating_div = a.find("span", attrs={"class":"a-icon-alt"})
     rating.append(rating_div.text.split(' ')[0])
-print(rating)
 
-data = pd.DataFrame({'Title':title, 'Rating':rating, 'Link':link_list})
+price = []
+price_a = soup.find_all("a", attrs={"class":"a-size-base a-link-normal s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal"})
+for a in price_a:
+    price_span = a.find("span", attrs={"class":"a-price","data-a-size":"xl","data-a-color":"base"})
+    price_tag = price_span.find("span", attrs={"class":"a-offscreen"})
+    price_text = price_tag.text.strip()
+    price_integer = ''.join(filter(str.isdigit, price_text))
+    print(price_integer)
+    price.append(price_integer)
+
+
+data = pd.DataFrame({'Title':title, 'Rating':rating, 'Link':link_list, 'Price':price})
 data.to_csv('amazon.csv', index=False, encoding='utf-8')
