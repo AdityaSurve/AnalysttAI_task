@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from urllib.parse import urlparse, unquote
 
-Header = ({'UserAgent':"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50", 'Accept-Language':"en-US,en;q=0.5"})
+Header = ({'UserAgent':"", 'Accept-Language':"en-US,en;q=0.5"})
 title = []
 link_list = []
 rating = []
